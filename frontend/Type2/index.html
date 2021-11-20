@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>College Database</title>
+        <meta name="description" content="collegedb dbms mini project">
+        <meta name="viewpoer" content="width=devie-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <nav class="navbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user-graduate" class="svg-inline--fa fa-user-graduate fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M319.4 320.6L224 416l-95.4-95.4C57.1 323.7 0 382.2 0 454.4v9.6c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-9.6c0-72.2-57.1-130.7-128.6-133.8zM13.6 79.8l6.4 1.5v58.4c-7 4.2-12 11.5-12 20.3 0 8.4 4.6 15.4 11.1 19.7L3.5 242c-1.7 6.9 2.1 14 7.6 14h41.8c5.5 0 9.3-7.1 7.6-14l-15.6-62.3C51.4 175.4 56 168.4 56 160c0-8.8-5-16.1-12-20.3V87.1l66 15.9c-8.6 17.2-14 36.4-14 57 0 70.7 57.3 128 128 128s128-57.3 128-128c0-20.6-5.3-39.8-14-57l96.3-23.2c18.2-4.4 18.2-27.1 0-31.5l-190.4-46c-13-3.1-26.7-3.1-39.7 0L13.6 48.2c-18.1 4.4-18.1 27.2 0 31.6z"></path></svg>
+                        <span class="link-text">Student</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="chalkboard-teacher" class="svg-inline--fa fa-chalkboard-teacher fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M208 352c-2.39 0-4.78.35-7.06 1.09C187.98 357.3 174.35 360 160 360c-14.35 0-27.98-2.7-40.95-6.91-2.28-.74-4.66-1.09-7.05-1.09C49.94 352-.33 402.48 0 464.62.14 490.88 21.73 512 48 512h224c26.27 0 47.86-21.12 48-47.38.33-62.14-49.94-112.62-112-112.62zm-48-32c53.02 0 96-42.98 96-96s-42.98-96-96-96-96 42.98-96 96 42.98 96 96 96zM592 0H208c-26.47 0-48 22.25-48 49.59V96c23.42 0 45.1 6.78 64 17.8V64h352v288h-64v-64H384v64h-76.24c19.1 16.69 33.12 38.73 39.69 64H592c26.47 0 48-22.25 48-49.59V49.59C640 22.25 618.47 0 592 0z"></path></svg>
+                        <span class="link-text">Faculty</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="graduation-cap" class="svg-inline--fa fa-graduation-cap fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path></svg>
+                        <span class="link-text">Courses</span>
+                    </a>
+                </li>
+                <li class="nav-item main-logo">
+                    <a href="#" class="nav-link">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="university" class="svg-inline--fa fa-university fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z"></path></svg>
+                        <span class="link-text">CollegeDB</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <h1>Welcome to College Database</h1>
+            <p>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis, arcu at luctus interdum, diam odio efficitur justo, eget placerat diam risus eu augue. Nulla faucibus orci quis eleifend tristique. Proin dapibus sit amet arcu ut eleifend. Vestibulum blandit sem vitae quam fringilla viverra. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a elementum velit. Donec eu diam nec lectus hendrerit feugiat.
+
+Sed id condimentum turpis. Ut tincidunt nulla pretium, venenatis tortor et, varius nunc. Nam facilisis urna vel nibh consequat, in ullamcorper nibh dictum. Proin consequat nulla a nunc efficitur, eu ultricies justo suscipit. Sed quis tincidunt elit. Nulla vel massa nec libero euismod rhoncus. Integer sed luctus mi. Quisque mollis velit eu mauris pharetra ullamcorper.
+
+Vestibulum luctus orci ex, vitae sollicitudin lorem mollis sit amet. Aliquam eleifend neque quis luctus tincidunt. Mauris sed dignissim nisi. Mauris placerat dui lorem, quis eleifend arcu fermentum fringilla. Vestibulum turpis sapien, auctor nec augue at, finibus fringilla nisl. Curabitur faucibus velit diam. Donec pulvinar, diam at hendrerit aliquam, ante risus venenatis mauris, et placerat elit nisl non enim. Ut vitae ex sit amet sem finibus vehicula. Vivamus nec mi varius risus feugiat pulvinar.
+
+Nunc malesuada vulputate magna vitae congue. Proin dictum dignissim eleifend. Nullam dui ante, interdum ac augue sed, congue vestibulum nunc. Vestibulum elementum odio ac nisi aliquet interdum. Phasellus accumsan leo neque, eget accumsan nunc facilisis ut. Donec est leo, pretium vel lorem in, viverra mattis justo. Duis eget elit tellus.
+
+Aenean varius, tellus et aliquam ultricies, sem diam maximus eros, at egestas diam odio non turpis. Morbi id malesuada enim, eu dictum arcu. Nam auctor odio quis tincidunt semper. Proin justo felis, feugiat vel aliquet a, viverra vel neque. Vivamus posuere posuere turpis, id accumsan ipsum pharetra ut. Sed at rutrum ex. In semper tincidunt massa id dictum. Integer dapibus id ante egestas facilisis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse in mi sapien. Suspendisse malesuada, nulla id gravida imperdiet, quam velit ornare neque, eget pharetra mi nibh eu quam. In elit lorem, malesuada sit amet aliquet nec, posuere at urna. Nam velit ex, efficitur ac nisi tristique, mattis gravida quam. Mauris eu leo lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor scelerisque augue, in imperdiet ex maximus eu. 
+            </p>
+        </main>
+    </body>
+</html>
