@@ -7,6 +7,13 @@ app.use(cors());
 app.use(express.json());
 
 // ROUTES
+app.get("/", (req, res) => {
+    res_txt = '/student<br>'+
+              '/faculty<br>'+
+              '/courses<br>'
+    res.send(res_txt)
+})
+
 app.get("/students", async (req, res) => {
     try {
         //await
