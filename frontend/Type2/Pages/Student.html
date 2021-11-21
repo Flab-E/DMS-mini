@@ -46,11 +46,20 @@
         <main>
             <h1>Welcome to College Database</h1>
             <script>
-                async function getStu() {  
-                    const response = await fetch('http://localhost:3000/students', {mode: 'no-cors'})
-                    
-                    console.log(response);
+                fetch('http://localhost:3000/students', {
+                    // mode: 'no-cors',
+                    method: 'GET',
+                    headers: {
+                        Accept: 'application/json',
+                    },
+                }).then(response => {
+                    console.log('okkkkkk')
+                    if (response.ok) {
+                        response.json().then(json => {
+                        console.log(json);
+                    });
                 }
+                });
             </script>
         </main>
     </body>

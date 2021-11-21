@@ -1,9 +1,10 @@
-
+const cors = require("cors");
 const express = require("express");
 const pool = require("./db");
 const app = express();
 
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 // ROUTES
 app.get("/students", async (req, res) => {
