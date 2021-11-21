@@ -65,8 +65,10 @@
 
                     for (ind in data) {
                         var row = table.insertRow(parseInt(ind)+1);
+                        var index = 0;
                         for (step in data[ind]) {
-                            var newCell = row.insertCell(step);
+                            var newCell = row.insertCell(index);
+                            index += 1;
                             newCell.innerHTML = data[ind][step];
                         }
                     }
