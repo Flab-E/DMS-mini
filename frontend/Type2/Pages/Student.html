@@ -6,6 +6,7 @@
         <meta name="description" content="collegedb dbms mini project">
         <meta name="viewpoer" content="width=devie-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <nav class="navbar">
@@ -45,7 +46,11 @@
         <main>
             <h1>Welcome to College Database</h1>
             <script>
-                
+                async function getStu() {  
+                    const response = await fetch('http://localhost:3000/students', {mode: 'no-cors'})
+                    
+                    console.log(response);
+                }
             </script>
         </main>
     </body>
