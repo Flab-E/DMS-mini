@@ -1,30 +1,42 @@
-const express = require("express")
-const bodyParser = require("body-parser")
-const pg = require('pg')
 
-const app = express()
-const port = 3000
+const express = require("express");
+const pool = require("./db");
+const app = express();
 
-app.use(bodyParser.json())
-app.use(
-    bodyParser.urlencoded({
-        extended: true,
-    })
-)
+app.use(express.json())
 
-app.get('/', (request, response) => {
-    response.json({info: 'Node.js Express, and Postgres API'})
+// ROUTES
+app.get("/students", async (req, res) => {
+    try {
+        //await
+        const allStudents = await pool.query("SELECT * FROM student;");
+        res.json(allStudents.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
 })
 
-app.listen(port, () => {
-    console.log(`App running on port ${port}.`)
+app.get("/faculty", async (req, res) => {
+    try {
+        //await
+        const allFaculty = await pool.query("SELECT * FROM faculty;");
+        res.json(allFaculty.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
 })
 
-const Pool = pg.Pool
-const pool = new Pool({
-    user: 'me',
-    host: 'localhost',
-    database: 'CollegeDB',
-    
+app.get("/courses", async (req, res) => {
+    try {
+        //await
+        const allCourses = await pool.query("SELECT * FROM course;");
+        res.json(allCourses.rows);
+    } catch (err) {
+        console.error(err.message);
+    }
+})
+
+app.listen(3000, () => {
+    console.log("server is listening on port 3000");
 })
 
