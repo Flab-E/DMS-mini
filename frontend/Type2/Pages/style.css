@@ -8,6 +8,7 @@
     --bg-primary: #131313;
     --bg-secondary: #1e1e1e;
     --custom-primary: #03dac6;
+    --custom-primary-trans: #03dac593;
     --custom-secondary: #3700b3;
     --custom-err: #cf6679;
     --custom-grey: #555555;
@@ -126,4 +127,13 @@ main {
     transform: rotate(-180deg);
     transition: transform var(--trasistion-speed);
     transition: var(--trasistion-speed);
+}
+
+#table {
+    border: 2px solid var(--custom-primary);
+    width: 100%;
+}
+
+#table td {
+    border: 2px solid var(--custom-primary-trans);
 }
