@@ -138,3 +138,36 @@ main {
     border: 2px solid var(--custom-primary-trans);
     padding: 5px;
 }
+
+.float-add{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#0C9;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+.float-add {
+    position: fixed;
+    background-color: var(--custom-grey);
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+	right: 40px;
+    border-radius: 100%;
+    background: var(--bg-secondary);
+    color: var(--custom-primary);
+    font-size: 20px;
+	box-shadow: 2px 2px 3px var(--bg-primary);
+    transition: .3s;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
