@@ -171,3 +171,57 @@ main {
     transition: .3s;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+.student-form {
+    width: 400px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background: var(--bg-primary);
+    text-align: center;
+    border: solid 2px var(--custom-primary);
+    border-radius: 5px;
+    transition: 300ms;
+}
+
+.student-form input[type="text"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    padding: 5px;
+    text-align: center;
+    border: solid 2px var(--custom-primary-trans);
+    width: 300px;
+    outline: var(--custom-primary);
+    color: white;
+    border-radius: 10px;
+    transition: 300ms;
+}
+
+.student-form input[type="text"]:focus {
+    width: 350px;
+    border: solid 2px var(--custom-primary);
+}
+
+.student-form input[type="submit"] {
+    border: 0;
+    background: var(--bg-secondary);
+    display: block;
+    margin: 20px auto;
+    padding: 5px 10px;
+    text-align: center;
+    border: solid 2px var(--custom-primary);
+    outline: var(--custom-primary);
+    color: white;
+    border-radius: 10px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.student-form input[type="submit"]:hover {
+    background: var(--custom-primary);
+    color: var(--bg-secondary);
+}
