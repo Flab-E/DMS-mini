@@ -173,7 +173,7 @@ main {
 }
 
 .student-form {
-    width: 400px;
+    width: 800px;
     padding: 40px;
     position: absolute;
     top: 50%;
@@ -184,6 +184,7 @@ main {
     border: solid 2px var(--custom-primary);
     border-radius: 5px;
     transition: 300ms;
+    overflow: hidden;
 }
 
 .student-form input[type="text"] {
@@ -224,4 +225,14 @@ main {
 .student-form input[type="submit"]:hover {
     background: var(--custom-primary);
     color: var(--bg-secondary);
+}
+
+.form-col1 {
+    width: 48%;
+    float: left;
+}
+
+.form-col2 {
+    width: 48%;
+    float: right;
 }

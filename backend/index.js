@@ -14,6 +14,31 @@ app.get("/", (req, res) => {
     res.send(res_txt)
 })
 
+app.post("/studentAdd", async (req, res) => {
+    try {
+        const params = req.body;
+        const studentTable = await pool.query(
+            `Insert into Student Values('${params['name']}', '${params['prn']}', ${params['srn']}, ${params['sem']}, ${params['cgpa']}, ${params['sgpa']}, '${params['stream']}');`
+        )
+
+        const certiTable = await pool.query(
+            `Insert into certificate Values('${params['name']}', '${params['certificate_date']}', '${params['prn']}', '${params['certificate']}');`
+        )
+
+        const mentorTable = await pool.query(
+            `Insert into mentor_system Values('${params['section']}', '${params['mentor_name']}', '${params['mentor_usn']}', '${params['name']}', '${params['prn']}');`
+        )
+
+        const contactTable = await pool.query(
+            `Insert into student_contact Values(${params['contact_no']}, '${params['email']}', '${params['prn']}');`
+        )
+
+        res.json({ok: "ok"})
+    } catch (err) {
+        console.log("Oops! something went wrong!", err)
+    }
+})
+
 app.get("/students", async (req, res) => {
     try {
         //await

@@ -58,7 +58,7 @@ CREATE TABLE Mentor_System
   Fac_USN char(8) NOT NULL,
   Student varchar(20) NOT NULL,
   Stu_PRN char(9) NOT NULL,
-  PRIMARY KEY (Fac_USN),
+  PRIMARY KEY (Fac_USN, Stu_PRN),
   UNIQUE (STU_PRN),
   FOREIGN KEY (Stu_PRN) REFERENCES Student(PRN),
   FOREIGN KEY (Fac_USN) REFERENCES Faculty(USN)

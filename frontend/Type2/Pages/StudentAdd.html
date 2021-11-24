@@ -45,15 +45,73 @@
         </nav>
         <main>
             <form class="student-form" action="index.html">
-                    <h1>Add Student Details</h1>
-                    <input type="text" name="Name" placeholder="Student Name">
-                    <input type="text" name="PRN" placeholder="PRN">
-                    <input type="text" name="SRN" placeholder="SRN">
-                    <input type="text" name="CGPA" placeholder="CGPA">
-                    <input type="text" name="SGPA" placeholder="SGPA">
-                    <input type="text" name="Strem" placeholder="Stream">
-                    <input type="submit" name="submit" value="Submit">
-            </form>            
+                <h1>Add Student Details</h1>
+                <div class="form-col1">
+                    <input type="text" id="Name" name="Name" placeholder="Student Name">
+                    <input type="text" id="PRN" name="PRN" placeholder="PRN">
+                    <input type="text" id="SRN" name="SRN" placeholder="SRN">
+                    <input type="text" id="Sem" name="Sem" placeholder="Sem">
+                    <input type="text" id="CGPA" name="CGPA" placeholder="CGPA">
+                    <input type="text" id="SGPA" name="SGPA" placeholder="SGPA">
+                    <input type="text" id="Stream" name="Stream" placeholder="Stream">
+                </div>
+                <div class="form-col2">
+                    <input type="text" id="Certification" name="Certification" placeholder="Certification">
+                    <input type="text" id="Certificate-Date" name="Certificate-Date" placeholder="Certificate-Date">
+                    <input type="text" id="Section" name="Section" placeholder="Section">
+                    <input type="text" id="Mentor-USN" name="Mentor-USN" placeholder="Mentor-USN">
+                    <input type="text" id="Mentor-name" name="Mentor-name" placeholder="Mentor-name">
+                    <input type="text" id="EMAIL" name="EMAIL" placeholder="EMAIL">
+                    <input type="text" id="Conatct-No" name="Conatct-No" placeholder="Conatct-No">
+                </div>
+                <input id="add-submit" type="submit" name="submit" value="Submit">
+            </form>
         </main>
+
+        <script>
+            document.getElementById("add-submit").addEventListener("click", function(event) {
+                event.preventDefault();
+                console.log("okkkkkkk");
+                name = document.getElementById("Name").value;
+                prn = document.getElementById("PRN").value;
+                srn = document.getElementById("SRN").value;
+                sem = document.getElementById("Sem").value;
+                cgpa = document.getElementById("CGPA").value;
+                sgpa = document.getElementById("SGPA").value;
+                stream = document.getElementById("Stream").value;
+                certificate_date = document.getElementById("Certificate-Date").value;
+                certification = document.getElementById("Certification").value;
+                section = document.getElementById("Section").value;
+                mentor_usn = document.getElementById("Mentor-USN").value;
+                mentor_name = document.getElementById("Mentor-name").value;
+                email = document.getElementById("EMAIL").value;
+                conatct_no = document.getElementById("Conatct-No").value;
+                params = {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        prn: prn,
+                        srn: srn,
+                        sem: sem,
+                        cgpa: cgpa,
+                        sgpa: sgpa,
+                        stream: stream,
+                        certification: certification,
+                        certificate_date: certificate_date,
+                        section: section,
+                        mentor_name: mentor_name,
+                        mentor_usn: mentor_usn,
+                        email: email,
+                        conatct_no: conatct_no
+                    })
+                };
+
+                const resp = fetch("http://localhost:3000/studentAdd", params);
+            });
+        </script>
     </body>
 </html>
