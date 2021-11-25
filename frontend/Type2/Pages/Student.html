@@ -50,6 +50,21 @@
 
                 </table>
             </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Student Document</h2>
+                <table class="table" id="certi-table"></table>
+                <h2>Student Mentor</h2>
+                <table class="table" id="mentor-table"></table>
+                <h2>Student Courses</h2>
+                <table class="table" id="course-table"></table>
+                </div>
+            
+            </div>
             <a href="StudentAdd.html" class="float-add">
                 <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="circle-plus" class="svg-inline--fa fa-circle-plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256C397.4 512 512 397.4 512 256S397.4 0 256 0zM352 280H280V352c0 13.2-10.8 24-23.1 24C242.8 376 232 365.2 232 352V280H160C146.8 280 136 269.2 136 256c0-13.2 10.8-24 24-24H232V160c0-13.2 10.8-24 24-24C269.2 136 280 146.8 280 160v72h72C365.2 232 376 242.8 376 256C376 269.2 365.2 280 352 280z"></path></svg>
             </a>
@@ -68,6 +83,7 @@
 
                     for (ind in data) {
                         var row = table.insertRow(parseInt(ind)+1);
+                        row.setAttribute("onClick", "test(this)", 0);
                         var index = 0;
                         for (step in data[ind]) {
                             var newCell = row.insertCell(index);
@@ -78,6 +94,112 @@
 
                     //console.log(data);
                 });
+
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+                
+                function test (x) {
+                    var prn = x.childNodes[1].innerHTML;
+                    console.log(prn);
+                    modal.style.display = "block";
+
+                    $("#course-table tr").remove();
+                    $.getJSON(`http://localhost:3000/course/${prn}`, function(data) {
+                        // JSON result in `data` variable
+                        keys = Object.keys(data[0]);
+                        //console.log(keys)
+
+                        var table = document.getElementById('course-table');
+                        var row = table.insertRow(0);
+                        for (key in keys) {
+                            var newCell = row.insertCell(key);
+                            newCell.innerHTML = keys[key];
+                        }
+
+                        for (ind in data) {
+                            var row = table.insertRow(parseInt(ind)+1);
+                            row.setAttribute("onClick", "test(this)", 0);
+                            var index = 0;
+                            for (step in data[ind]) {
+                                var newCell = row.insertCell(index);
+                                index += 1;
+                                newCell.innerHTML = data[ind][step];
+                            }
+                        }
+
+                        //console.log(data);
+                    });
+
+                    $("#certi-table tr").remove();
+                    $.getJSON(`http://localhost:3000/certificate/${prn}`, function(data) {
+                        // JSON result in `data` variable
+                        keys = Object.keys(data[0]);
+                        //console.log(keys)
+
+                        var table = document.getElementById('certi-table');
+                        var row = table.insertRow(0);
+                        for (key in keys) {
+                            var newCell = row.insertCell(key);
+                            newCell.innerHTML = keys[key];
+                        }
+
+                        for (ind in data) {
+                            var row = table.insertRow(parseInt(ind)+1);
+                            row.setAttribute("onClick", "test(this)", 0);
+                            var index = 0;
+                            for (step in data[ind]) {
+                                var newCell = row.insertCell(index);
+                                index += 1;
+                                newCell.innerHTML = data[ind][step];
+                            }
+                        }
+
+                        //console.log(data);
+                    });
+
+                    $("#mentor-table tr").remove();
+                    $.getJSON(`http://localhost:3000/mentor/${prn}`, function(data) {
+                        // JSON result in `data` variable
+                        keys = Object.keys(data[0]);
+                        //console.log(keys)
+
+                        var table = document.getElementById('mentor-table');
+                        var row = table.insertRow(0);
+                        for (key in keys) {
+                            var newCell = row.insertCell(key);
+                            newCell.innerHTML = keys[key];
+                        }
+
+                        for (ind in data) {
+                            var row = table.insertRow(parseInt(ind)+1);
+                            row.setAttribute("onClick", "test(this)", 0);
+                            var index = 0;
+                            for (step in data[ind]) {
+                                var newCell = row.insertCell(index);
+                                index += 1;
+                                newCell.innerHTML = data[ind][step];
+                            }
+                        }
+
+                        //console.log(data);
+                    });
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                } 
+
             </script>
         </main>
     </body>

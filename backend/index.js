@@ -39,6 +39,39 @@ app.post("/studentAdd", async (req, res) => {
     }
 })
 
+app.get("/certificate/:prn", async (req, res) => {
+    try {
+        const { prn } = req.params;
+        console.log(prn);
+        const certi = await pool.query(`Select * from certificate where stu_prn='${prn}';`);
+        res.json(certi.rows);
+    } catch (err) {
+        console.log("opps something went wrong /singleStudent", err)
+    }
+});
+
+app.get("/course/:prn", async (req, res) => {
+    try {
+        const { prn } = req.params;
+        console.log(prn);
+        const certi = await pool.query(`Select * from course where stream=(Select code from studies where prn='${prn}') and semester=(Select sem from student where prn='${prn}');`);
+        res.json(certi.rows);
+    } catch (err) {
+        console.log("opps something went wrong /singleStudent", err)
+    }
+});
+
+app.get("/mentor/:prn", async (req, res) => {
+    try {
+        const { prn } = req.params;
+        console.log(prn);
+        const mentor = await pool.query(`Select * from mentor_system where stu_prn='${prn}';`);
+        res.json(mentor.rows);
+    } catch (err) {
+        console.log("opps something went wrong /singleStudent", err)
+    }
+});
+
 app.get("/students", async (req, res) => {
     try {
         //await
