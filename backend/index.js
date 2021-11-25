@@ -2,17 +2,54 @@ const cors = require("cors");
 const express = require("express");
 const pool = require("./db");
 const app = express();
+const cookieParser = require('cookie-parser'); // in order to read cookie sent from client
 
 app.use(cors());
 app.use(express.json());
 
 // ROUTES
 app.get("/", (req, res) => {
+
+
+    // read cookies
+    console.log(req.cookies) 
+
+    let options = {
+        maxAge: 1000 * 60 * 3600, // would expire after 15 minutes
+        httpOnly: true, // The cookie only accessible by the web server
+    }
+
+    // Set cookie
+    
+
     res_txt = '/student<br>'+
               '/faculty<br>'+
-              '/courses<br>'
+              '/courses<br>';
     res.send(res_txt)
 })
+
+app.post('/login', async (req, res) => {
+    // Insert Login Code Here
+    username = req.body['username'];
+    password = req.body['password'];
+    console.log(username, password);
+    if(username === 'admin' && password === 'admin')
+    {
+        res.cookie('user', 'admin');
+        res.json({ok: true});
+    }
+
+    else{
+        const creds = await pool.query(`SELECT * FROM STUDENT WHERE NAME = '${username}' and PRN = '${password}';`);
+        if (creds.rowCount>0){
+            res.cookie('user','student');
+            res.json({ok: true});
+        }
+        else{
+            res.json({'ok': false});
+        }
+    }
+  });
 
 app.post("/studentAdd", async (req, res) => {
     try {
@@ -243,6 +280,9 @@ app.get("/teaches", async (req, res) => {
         console.error(err.message);
     }
 })
+
+
+
 
 app.listen(3000, () => {
     console.log("server is listening on port 3000");
