@@ -72,6 +72,28 @@ app.get("/mentor/:prn", async (req, res) => {
     }
 });
 
+app.get("/teaches/:usn", async (req, res) => {
+    try {
+        const { usn } = req.params;
+        console.log(usn);
+        const teaches = await pool.query(`Select * from teaches where usn='${usn}';`);
+        res.json(teaches.rows);
+    } catch (err) {
+        console.log("opps something went wrong /singleStudent", err)
+    }
+});
+
+app.get("/facContact/:usn", async (req, res) => {
+    try {
+        const { usn } = req.params;
+        console.log(usn);
+        const contact = await pool.query(`Select * from faculty_contact where usn='${usn}';`);
+        res.json(contact.rows);
+    } catch (err) {
+        console.log("opps something went wrong /singleStudent", err)
+    }
+});
+
 app.get("/students", async (req, res) => {
     try {
         //await

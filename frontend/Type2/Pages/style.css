@@ -205,7 +205,7 @@ main {
     overflow: hidden;
 }
 
-.student-form input[type="text"] {
+.student-form input[type="text"],input[type="password"] {
     border: 0;
     background: none;
     display: block;
@@ -220,7 +220,7 @@ main {
     transition: 300ms;
 }
 
-.student-form input[type="text"]:focus {
+.student-form input[type="text"]:focus,input[type="password"]:hover {
     width: 350px;
     border: solid 2px var(--custom-primary);
 }
